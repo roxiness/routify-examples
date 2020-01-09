@@ -3,11 +3,14 @@
   export let user;
 
   const links = [
+    ["Home", "./index"],
     ["Feed", "./feed"],
     ["About", "./about"],
-    ["Editor", "./editor", true, "/icons/edit.svg"],
-    ["User", "./user", true, "/icons/user.svg"]
+    ["Editor", "./editor", true, "edit"],
+    ["User", "./user", true, "user"]
   ];
+
+  $: isAdmin = user._id && user.roles.find(role => role === "admin");
 </script>
 
 <style>
@@ -28,22 +31,39 @@
     text-align: right;
   }
   .center a {
-    color: var(--color1);
-    padding: 8px 48px;
+    padding: 4px 0px;
+    margin: 0 48px;
   }
 
-  .inline-svg-icon{
-  display: inline-block;
-  fill: currentColor;
-  width: 24px;
-  height: 24px;
-  vertical-align: middle;
-}
+  .center a:hover {
+    color: var(--color2);
+    border-bottom: 1px solid var(--color2);
+  }
+
+  .inline-svg-icon {
+    display: inline-block;
+    fill: currentColor;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+  }
+
+  a.icon {
+    display: inline-block;
+  }
+
+  a.subtle {
+    font-size: 0.9rem;
+    color: var(--color4);
+  }
+  a.subtle:hover {
+    color: var(--color3);
+  }
 </style>
 
 <div class="navbar">
   <div class="left">
-    <a href={$url('./index')}>Home</a>
+    <a href={$url('./index')}>My App</a>
   </div>
   <div class="center">
     {#each links as [name, path, right]}
@@ -53,20 +73,26 @@
     {/each}
   </div>
   <div class="right">
-    {#each links as [name, path, right, icon]}
-      {#if right}
-        <a href={$url(path)} style="padding-left:12px; ">
-          <object
-            data={icon}
-            type="image/svg+xml"
-            style="width:24px; stroke: red; color: red; fill: red" />
-          <!-- <img src={icon} alt="" style="width:24px; color: red; fill: currentColor" /> -->
+
+    {#if user._id}
+      <span style="color: var(--color4)">
+        <a href={$url('./user')}>
+          {user.username}
+          <svg class="inline-svg-icon">
+            <use xlink:href="build/bundle.svg#user" />
+          </svg>
         </a>
-      {/if}
-    {/each}
+      </span>
+    {:else}
+      <a href={$url('./signin')} class="subtle">Sign in</a>
+    {/if}
+
+    {#if isAdmin}
+      <a href={$url('./admin')} class="icon" style="padding-left: 32px">
+        <svg class="inline-svg-icon" style="color: var(--color4)">
+          <use xlink:href="build/bundle.svg#edit" />
+        </svg>
+      </a>
+    {/if}
   </div>
 </div>
-asd
-<svg class="inline-svg-icon" style="color: var(--color4)">
-  <use xlink:href="build/bundle.svg#edit"></use>
-</svg>

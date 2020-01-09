@@ -29,3 +29,17 @@ export const user = (() => {
 
     return { subscribe, authenticate, signin, signout }
 })()
+
+export const posts = (()=>{
+    const { set, subscribe } = writable([])
+
+    async function hydrate(){
+        const response = await api('feed')
+        const data = await response.json()
+        set(data)
+    }
+
+    return {subscribe, hydrate}
+})()
+
+

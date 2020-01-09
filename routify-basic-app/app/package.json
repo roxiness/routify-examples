@@ -22,6 +22,7 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
+    "@sveltech/routify": "^1.0.1-22",
     "sirv-cli": "^0.4.4"
   }
 }

@@ -1,7 +1,7 @@
 const baseUrl = 'http://localhost:3000/'
 
 export async function api(url, data, method = null) {
-
+    console.log('method', method)
     method = method || data ? 'POST' : 'GET'
     url = baseUrl + url
     const options = { method, credentials: 'include' }

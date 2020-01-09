@@ -1,13 +1,15 @@
 <script>
-  import { user } from "../../stores";
-  import { api } from "../../utils.js";
+  import { goto } from '@sveltech/routify'
+  import { user } from "../stores";
+  import { api } from "../utils.js";
   const url = "http://localhost:3000/login";
 
   let username = "admin";
   let password = "pass";
 
   async function handleSubmit() {
-    user.login({ username, password });
+    const result = await user.signin({ username, password });
+    if(result) $goto('../')
   }
 </script>
 

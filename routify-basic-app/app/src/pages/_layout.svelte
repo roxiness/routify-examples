@@ -6,6 +6,6 @@
 
 {#if !$user.isUnauthenticated}
   
-  <Navbar {user} />
+  <Navbar user={$user} />
   <slot />
 {/if}

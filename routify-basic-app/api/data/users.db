@@ -1,4 +1,4 @@
-{"username":"admin","pass":"7c095dacdb24fa3c0add44c6676eb97177336bfc055f77fe4615b969aef434762e239c546c3da51326c7d3cb5610eeb2c42746001821a98b916b98cd5c541438","_id":"KLtiRMq7nq01d5qr"}
-{"username":"user","pass":"7c095dacdb24fa3c0add44c6676eb97177336bfc055f77fe4615b969aef434762e239c546c3da51326c7d3cb5610eeb2c42746001821a98b916b98cd5c541438","_id":"d6CdWqs5KNEIfMCq"}
-{"username":"author","pass":"7c095dacdb24fa3c0add44c6676eb97177336bfc055f77fe4615b969aef434762e239c546c3da51326c7d3cb5610eeb2c42746001821a98b916b98cd5c541438","_id":"sYgKplyHQnlr3yZh"}
+{"username":"author","pass":"7c095dacdb24fa3c0add44c6676eb97177336bfc055f77fe4615b969aef434762e239c546c3da51326c7d3cb5610eeb2c42746001821a98b916b98cd5c541438","_id":"iBwhLMecC28YgtPC"}
+{"username":"admin","pass":"7c095dacdb24fa3c0add44c6676eb97177336bfc055f77fe4615b969aef434762e239c546c3da51326c7d3cb5610eeb2c42746001821a98b916b98cd5c541438","_id":"rBttQiYPWqpt1rd2"}
+{"username":"user","pass":"7c095dacdb24fa3c0add44c6676eb97177336bfc055f77fe4615b969aef434762e239c546c3da51326c7d3cb5610eeb2c42746001821a98b916b98cd5c541438","_id":"yPtHfqZCAbvDVH2m"}
 {"$$indexCreated":{"fieldName":"username","unique":true,"sparse":false}}
