@@ -3,22 +3,20 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
-import svgicons from 'rollup-plugin-svg-icons'
+import { config } from '@sveltech/routify'
 
+const split = config.dynamicImports
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
 	input: 'src/main.js',
 	output: {
 		sourcemap: true,
-		format: 'iife',
 		name: 'app',
-		file: 'public/build/bundle.js'
+		format: split ? 'esm' : 'iife',
+		[split ? 'dir' : 'file']: split ? 'public/build' : 'public/build/bundle.js'
 	},
 	plugins: [
-		svgicons({
-			output: 'public/build/bundle.svg'
-		}),
 		svelte({
 			// enable run-time checks when not in production
 			dev: !production,
@@ -62,10 +60,11 @@ function serve() {
 
 	return {
 		writeBundle() {
+			const script = !split ? 'start' : 'start:split'
 			if (!started) {
 				started = true;
 
-				require('child_process').spawn('npm', ['run', 'start', '--', '--dev'], {
+				require('child_process').spawn('npm', ['run', script, '--', '--dev'], {
 					stdio: ['ignore', 'inherit', 'inherit'],
 					shell: true
 				});

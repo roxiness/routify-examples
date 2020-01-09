@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "run-p dev:app dev:api",
+    "dev:split": "run-p dev:app dev:api",
     "dev:app": "cd app && npm run dev",
+    "dev:app:split": "cd app && npm run dev:split",
     "dev:api": "cd api && npm run dev"
   },
   "author": "",
